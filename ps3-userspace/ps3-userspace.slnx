@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="ps3-userspace.vcxproj" />
+  <Project Path="ps3-userspace.vcxproj" Id="4518f2de-f839-423a-82db-9d18186ed03e" />
 </Solution>
