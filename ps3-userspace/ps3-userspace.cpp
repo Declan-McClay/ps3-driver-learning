@@ -10,9 +10,12 @@
 #define SUCCESS 0
 #define INITFAILURE 1
 #define MISSINGDEVICEFAILURE 2
+#define INTERERROR 3
+#define PSINITERROR 4
 
 int main()
 {
+    unsigned char INITPACKET[4] = { 0x42, 0x0C, 0x00, 0x00 };
     libusb_device_handle* dHandle = NULL;
     std::cout << "Hello World!\n";
 
@@ -35,6 +38,37 @@ int main()
     }
 	std::cout << "PS3 Controller found!" << std::endl;
 
+	libusbRet = libusb_claim_interface(dHandle, 0);
+
+	if (libusbRet < 0) {
+		std::cout << "Failed to claim interface: " << libusb_error_name(libusbRet) << std::endl;
+		libusb_close(dHandle);
+		libusb_exit(ctx);
+		return INTERERROR;
+	}
+
+    libusbRet = libusb_control_transfer(
+        dHandle,
+        0x21,
+        0x09,
+        0x03F4,
+        0,
+        INITPACKET,
+        sizeof(INITPACKET),
+        1000
+    );
+
+	if (libusbRet < 0) {
+		std::cout << "Failed to send control transfer: " << libusb_error_name(libusbRet) << std::endl;
+		libusb_release_interface(dHandle, 0);
+		libusb_close(dHandle);
+		libusb_exit(ctx);
+		return PSINITERROR;
+	}
+
+	std::cout << "Initialization packet sent successfully!" << std::endl;
+
+    libusb_release_interface(dHandle, 0);
     libusb_close(dHandle);
     libusb_exit(ctx);
     return 0;   
