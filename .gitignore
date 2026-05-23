@@ -53,3 +53,19 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+x64/
+Debug/
+Release/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
