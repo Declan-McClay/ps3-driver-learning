@@ -58,6 +58,7 @@ dkms.conf
 .vs/
 *.user
 *.suo
+*.vcxproj.user
 
 # Build output
 x64/
