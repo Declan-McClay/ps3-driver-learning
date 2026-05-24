@@ -105,7 +105,7 @@ int main()
             std::cout << std::dec << std::endl;
         }
         previousState = state;
-        sendRumble(dHandle, 0x00, 0x00);  // large motor only, full strength
+        sendRumble(dHandle, 0xFF, 0x00); 
     }
 
  
