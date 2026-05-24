@@ -18,5 +18,13 @@
     <ClCompile Include="ps3-userspace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ps3-controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ps3-controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

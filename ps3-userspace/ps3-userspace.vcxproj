@@ -145,7 +145,11 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ps3-controller.cpp" />
     <ClCompile Include="ps3-userspace.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ps3-controller.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
